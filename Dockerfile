@@ -18,4 +18,6 @@ RUN apt-get update && \
     apt-get --purge -y remove wget build-essential cmake && \
     apt -y autoremove
 
+EXPOSE 6697
+
 ENTRYPOINT ["su", "-m", "ircd", "-c", "/home/ircd/hybrid/bin/ircd -foreground"]
