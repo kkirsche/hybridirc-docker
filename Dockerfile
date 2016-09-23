@@ -15,7 +15,7 @@ RUN apt-get update && \
     cd /home/ircd && \
     chown -R ircd:ircd hybrid && \
     # -y MUST be after --purge to work!
-    apt-get --purge -y remove wget build-essential cmake openssl libssl-dev && \
+    apt-get --purge -y remove wget build-essential cmake && \
     apt -y autoremove
 
-ENTRYPOINT ["su", "-m", "ircd", "-c", "/home/ircd/hybrid/bin/ircd"]
+ENTRYPOINT ["su", "-m", "ircd", "-c", "/home/ircd/hybrid/bin/ircd -foreground"]
