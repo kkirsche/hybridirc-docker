@@ -1,0 +1,25 @@
+[template]
+src   = "ircd.conf.tmpl"
+dest  = "/home/ircd/hybrid/etc/ircd.conf"
+owner = "ircd"
+group = "ircd"
+mode  = "0644"
+keys = [
+    "/serverinfo/name",
+    "/serverinfo/description",
+    "/serverinfo/networkname",
+    "/serverinfo/networkdesc",
+    "/serverinfo/hub",
+    "/serverinfo/defaultmaxclients",
+    "/serverinfo/maxnicklength",
+    "/serverinfo/maxtopiclength",
+    "/operator/name",
+    "/operator/password",
+    "/operator/encryptedpassword",
+    "/connect/name",
+    "/connect/host",
+    "/connect/sendpassword",
+    "/connect/acceptpassword",
+    "/connect/encryptedacceptpassword",
+    "/connect/port",
+]
