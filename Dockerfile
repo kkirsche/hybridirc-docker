@@ -45,4 +45,4 @@ ADD boot.sh /home/ircd/boot.sh
 
 EXPOSE 6697
 
-CMD ["/home/ircd/boot.sh"]
+ENTRYPOINT ["/home/ircd/boot.sh"]

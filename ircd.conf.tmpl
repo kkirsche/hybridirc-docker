@@ -41,7 +41,7 @@ serverinfo {
 	/*
 	 * name: the name of this server. This cannot be changed at runtime.
 	 */
-	name = "{{ getenv "/serverinfo/name" }}";
+	name = "{{ getv "/serverinfo/name" }}";
 
 	/*
 	 * sid: a server's unique ID. This is three characters long and must
@@ -58,20 +58,20 @@ serverinfo {
 	/*
 	 * description: the description of the server.
 	 */
-	description = "{{ getenv "/serverinfo/description" }}";
+	description = "{{ getv "/serverinfo/description" }}";
 
 	/*
 	 * network_name, network_desc: the name and description of the network this
 	 * server is on. Shown in the 005 reply and used with serverhiding.
 	 */
-	network_name = "{{ getenv "/serverinfo/networkname" }}";
-	network_desc = "{{ getenv "/serverinfo/networkdesc" }}";
+	network_name = "{{ getv "/serverinfo/networkname" }}";
+	network_desc = "{{ getv "/serverinfo/networkdesc" }}";
 
 	/*
 	 * hub: allow this server to act as a hub and have multiple servers
 	 * connected to it.
 	 */
-	hub = {{ getenv "/serverinfo/hub" }};
+	hub = {{ getv "/serverinfo/hub" }};
 
 	/*
 	 * vhost: the IP address to bind to when connecting outward to IPv4 servers.
@@ -89,20 +89,20 @@ serverinfo {
 	 * default_max_clients: the default maximum number of clients allowed
 	 * to connect. This can be changed from within IRC via /QUOTE SET MAX.
 	 */
-	default_max_clients = {{ getenv "/serverinfo/defaultmaxclients" }};
+	default_max_clients = {{ getv "/serverinfo/defaultmaxclients" }};
 
 	/*
 	 * max_nick_length: only applies to local clients. Must be in the
 	 * range of 9 to 30. Default is 9 if nothing else is specified.
 	 */
-	max_nick_length = {{ getenv "/serverinfo/maxnicklength" }};
+	max_nick_length = {{ getv "/serverinfo/maxnicklength" }};
 
 	/*
 	 * max_topic_length: only applies to topics set by local clients.
 	 * Must be in the range of 80 to 300. Default is 80 if nothing
 	 * else is specified.
 	 */
-	max_topic_length = {{ getenv "/serverinfo/maxtopiclength" }};
+	max_topic_length = {{ getv "/serverinfo/maxtopiclength" }};
 
 	/*
 	 * libgeoip_database_options: used to control the libGeoIP database handling.
@@ -476,13 +476,13 @@ auth {
  */
 operator {
 	/* name: the name of the operator */
-	name = "{{ getenv "/operator/name" }}";
+	name = "{{ getv "/operator/name" }}";
 
 	/*
 	 * user: the user@host required for this operator. Multiple user
 	 * lines are permitted within each operator {} block.
 	 */
-	user = "*{{ getenv "/operator/name" }}@.*";
+	user = "*{{ getv "/operator/name" }}@.*";
 
 	/*
 	 * password: the password required to oper. By default this will need
@@ -490,13 +490,13 @@ operator {
 	 * The availability of various password hashing algorithms may vary
 	 * depending on the system's crypt(3) implementation.
 	 */
-	password = "{{ getenv "/operator/password" }}";
+	password = "{{ getv "/operator/password" }}";
 
 	/*
 	 * encrypted: indicates whether the oper password above has been
 	 * encrypted. Default is 'yes' if nothing else is specified.
 	 */
-	encrypted = {{ getenv "/operator/encryptedpassword" }};
+	encrypted = {{ getv "/operator/encryptedpassword" }};
 
 	/*
 	 * ssl_certificate_fingerprint: enhances security by additionally checking
@@ -605,36 +605,36 @@ operator {
  */
 connect {
 	/* name: the name of the server. */
-	name = "{{ getenv "/connect/name" }}";
+	name = "{{ getv "/connect/name" }}";
 
 	/*
 	 * host: the host or IP address to connect to. If a hostname is used,
 	 * it must match the reverse DNS of the server.
 	 */
-	host = "{{ getenv "/connect/host" }}";
+	host = "{{ getv "/connect/host" }}";
 
 	/*
 	 * vhost: the IP address to bind to when making outgoing connections to
 	 * servers. serverinfo::vhost and serverinfo::vhost6 will be overridden
 	 * by this directive.
 	 */
-	vhost = "{{ getenv "/connect/host" }}";
+	vhost = "{{ getv "/connect/host" }}";
 
 	/*
 	 * send_password, accept_password: the passwords to send and accept.
 	 * The remote server will have these passwords swapped.
 	 */
-	send_password = "{{ getenv "/connect/sendpassword" }}";
-	accept_password = "{{ getenv "/connect/acceptpassword" }}";
+	send_password = "{{ getv "/connect/sendpassword" }}";
+	accept_password = "{{ getv "/connect/acceptpassword" }}";
 
 	/*
 	 * encrypted: indicates whether the accept_password above has been
 	 * encrypted.
 	 */
-	encrypted = {{ getenv "/connect/encryptedacceptpassword" }};
+	encrypted = {{ getv "/connect/encryptedacceptpassword" }};
 
 	/* port: the port to connect to this server on. */
-	port = {{ getenv "/connect/port" }};
+	port = {{ getv "/connect/port" }};
 
 	/*
 	 * hub_mask: the mask of servers that this server may hub. Multiple
