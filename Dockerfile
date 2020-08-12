@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 ENV SERVERINFO_NAME="irc.domain.com" \
     SERVERINFO_DESCRIPTION="ircd-hybrid test server" \
